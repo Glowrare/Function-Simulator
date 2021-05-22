@@ -63,25 +63,23 @@ function showIndexOfArrayFields() {
   <div class="index-of-array-input-wrapper">
     <div class="input-grp">
       <label>Enter Array</label>
-      <input id="indexOfArray" type="text" placeholder='e.g  ["Anthony", "Patrick", "Jane", "Ham"]' />
+      <input id="indexOfArray" type="text" placeholder='e.g  "Anthony", "Patrick", "Jane", "Ham" or 1,2,3,4' />
     </div>
     <div class="input-grp">
       <label>Search Element</label>
-      <input id="indexOfElement" type="text" placeholder='e.g "Anthony"' />
+      <input id="indexOfElement" type="text" placeholder='e.g "Anthony" or 1' />
     </div>
     <div class="input-grp">
       <label>From Index (Optional)</label>
-      <input id="indexOfArrayOptional" type="number" placeholder="number" />
+      <input id="indexOfArrayOptional" type="text" placeholder="number" />
     </div>
     <div class="center-flex">
-      <button class="classic-btn" id="indexOfStringBtn">
+      <button class="classic-btn" id="indexOfStringBtn" onclick="getIndexOfArray()">
         Find indexof
       </button>
     </div>
-    <div class="result hide-me">
-      <p>
-        The index of <span class="index-of-element">**</span> in the entered Array <span class="index-of-array">**</span> starting from index <span class="index-of-array-optional">**</span> is <span class="index-of-array-rtdindex">**</span>
-      </p>
+    <div class="result">
+      <p></p>
     </div>
   </div>
   `;
@@ -114,7 +112,7 @@ function showIndexOfStringFields() {
   `;
 }
 
-function indexOfSimulator(word, char, startIndex = 0) {
+function indexOfSimulator(word, char, type, startIndex = 0) {
   for (let k = startIndex; k < word.length; k++) {
     let charLength = char.length;
     let newString = '';
@@ -131,20 +129,20 @@ function indexOfSimulator(word, char, startIndex = 0) {
           }
           if (i == charLength - 1 && newString == char) {
             // return firstIndex;
-            return `The index of ${char} in the entered string "${word}" starting from index ${startIndex} is ${firstIndex}`;
+            return `The index of ${char} in the entered ${type} "${word}" starting from index ${startIndex} is ${firstIndex}`;
           } else if (i == charLength - 1 && newString !== char) {
             // return -1;
-            return `The index of ${char} in the entered string "${word}" starting from index ${startIndex} is -1`;
+            return `The index of ${char} in the entered ${type} "${word}" starting from index ${startIndex} is -1`;
           }
         }
       }
     } else if (word[k] == char) {
       // return k;
-      return `The index of ${char} in the entered string "${word}" starting from index ${startIndex} is ${k}`;
+      return `The index of ${char} in the entered ${type} "${word}" starting from index ${startIndex} is ${k}`;
     }
   }
   // return -1;
-  return `The index of ${char} in the entered string "${word}" starting from index ${startIndex} is -1`;
+  return `The index of ${char} in the entered ${type} "${word}" starting from index ${startIndex} is -1`;
 }
 
 function getIndexOfString() {
@@ -152,17 +150,19 @@ function getIndexOfString() {
   const searchValue = document.querySelector('#indexOfValue').value.trim();
   const optionalIndex = document.querySelector('#indexOfStringOptional').value;
   const searchResult = document.querySelector('.result p');
+  const type = 'Array';
+
   if (enteredString == '' || searchValue == '') {
-    alert('Kindly Entered string/Search value cannot be empty');
+    alert('Entered string/Search value cannot be empty');
   } else if (optionalIndex == '') {
-    const result = indexOfSimulator(enteredString, searchValue);
+    const result = indexOfSimulator(enteredString, searchValue, type);
     searchResult.textContent = result;
   } else if (isNaN(parseInt(optionalIndex))) {
     const userChoice = confirm(
       'Invalid "Start Index" provided. Would you like to proceed with the default of 0?'
     );
     if (userChoice === true) {
-      const result = indexOfSimulator(enteredString, searchValue);
+      const result = indexOfSimulator(enteredString, searchValue, type);
       searchResult.textContent = result;
     } else {
       return;
@@ -171,6 +171,49 @@ function getIndexOfString() {
     const result = indexOfSimulator(
       enteredString,
       searchValue,
+      type,
+      parseInt(optionalIndex)
+    );
+    searchResult.textContent = result;
+  }
+}
+
+function getIndexOfArray() {
+  let enteredArray = document
+    .querySelector('#indexOfArray')
+    .value.trim()
+    .split(',');
+  enteredArray = enteredArray.map((el) => el.trim());
+  const searchValue = document
+    .querySelector('#indexOfElement')
+    .value.trim()
+    .split(',');
+  const optionalIndex = document.querySelector('#indexOfArrayOptional').value;
+  const searchResult = document.querySelector('.result p');
+  const type = 'Array';
+  if (enteredArray == '' || searchValue == '') {
+    alert('Entered string/Search value cannot be empty');
+  } else if (optionalIndex == '') {
+    const result = indexOfSimulator(enteredArray, searchValue, type);
+    console.log(
+      `enteredArray ==> ${enteredArray}; searchValue ==> ${searchValue}`
+    );
+    searchResult.textContent = result;
+  } else if (isNaN(parseInt(optionalIndex))) {
+    const userChoice = confirm(
+      'Invalid "Start Index" provided. Would you like to proceed with the default of 0?'
+    );
+    if (userChoice === true) {
+      const result = indexOfSimulator(enteredArray, searchValue, type);
+      searchResult.textContent = result;
+    } else {
+      return;
+    }
+  } else {
+    const result = indexOfSimulator(
+      enteredArray,
+      searchValue,
+      type,
       parseInt(optionalIndex)
     );
     searchResult.textContent = result;
