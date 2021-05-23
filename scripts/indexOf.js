@@ -1,5 +1,5 @@
 //INDEXOF SIMULATOR
-function showIndexOfPage() {
+function IndexOfSimulator() {
   /*html*/
   mainContainer.innerHTML = `
    <div class="index-of-container">
@@ -179,11 +179,11 @@ function getIndexOfString() {
 }
 
 function getIndexOfArray() {
-  let enteredArray = document
+  let regex = /\s*,\s*/;
+  const enteredArray = document
     .querySelector('#indexOfArray')
     .value.trim()
-    .split(',');
-  enteredArray = enteredArray.map((el) => el.trim());
+    .split(regex);
   const searchValue = document
     .querySelector('#indexOfElement')
     .value.trim()
