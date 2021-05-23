@@ -1,4 +1,4 @@
-//INDEXOF SIMULATOR
+//Math.max(...arr) SIMULATOR
 function MathMaxArraySimulator() {
   /*html*/
   mainContainer.innerHTML = `
@@ -7,29 +7,60 @@ function MathMaxArraySimulator() {
           <h1 class="header"> MathMaxArray simulator</h1>
         </header>
         <div>
-          <div class="index-of-select-wrapper">
-            <select id="indexOfVarType" class="index-of-select" onchange="toggleArrayOrString()">
-              <option value="default">Choose Variable Type</option>
-              <option value="Arr">Array</option>
-              <option value="Str">String</option>
-            </select>
-          </div>
           <div class="input-field-wrapper">
+          <div class="index-of-array-input-wrapper">
+    <div class="input-grp">
+      <label>Enter Array</label>
+      <input id="arrayMax" type="text" placeholder='e.g 1, 2, 3, 4, 5' />
+    </div>
+    <div class="center-flex">
+      <button class="classic-btn" onclick="getArrayMax()">
+        Find Max Element Value
+      </button>
+    </div>
+    <div class="result">
+      <p></p>
+    </div>
+  </div>
           </div>
           <div class="simulator-doc-ref">
-            <p>The indexOf Simulator is a function created to works similar to the indexOf() method for arrays and
-              strings which returns the first index at which a given element/value can be found in an array/string, or
-              -1 if it is not present.
+            <p>The MathMaxArray Simulator is a function created to mimic the functioin of <code>Math.max.apply(null, numArray)</code> or <code>Math.max(...arr)</code> methods which return the maximum element in a numeric array.
               <br> See details in MDN documentation. <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">For
-                the Array method</a> | <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">For
-                the String
-                method</a>
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max">Math.max()</a>
             </p>
           </div>
         </div>
       </div>
    `;
   returnHomeBtn.classList.remove('invisible-me');
+}
+
+function findArrayMaxVal(arrayNum) {
+  let maxVal = 0;
+  maxVal = arrayNum[0];
+  for (let i = 0; i < arrayNum.length; i++) {
+    let currentVal = arrayNum[i];
+    if (maxVal < currentVal) {
+      maxVal = currentVal;
+    }
+  }
+  return `The Maximum Element in the array is ${maxVal}`;
+}
+
+function getArrayMax() {
+  let regex = /\s*,\s*/;
+  const enteredArray = document
+    .querySelector('#arrayMax')
+    .value.trim()
+    .split(regex)
+    .map((x) => {
+      return parseInt(x);
+    });
+  const searchResult = document.querySelector('.result p');
+  if (enteredArray == '') {
+    alert('Entered Array field cannot be empty');
+  } else {
+    const result = findArrayMaxVal(enteredArray);
+    searchResult.textContent = result;
+  }
 }

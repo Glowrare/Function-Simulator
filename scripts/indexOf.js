@@ -17,7 +17,7 @@ function IndexOfSimulator() {
           <div class="input-field-wrapper">
           </div>
           <div class="simulator-doc-ref">
-            <p>The indexOf Simulator is a function created to works similar to the indexOf() method for arrays and
+            <p>The indexOf Simulator is a function created to work similar to the indexOf() method for arrays and
               strings which returns the first index at which a given element/value can be found in an array/string, or
               -1 if it is not present.
               <br> See details in MDN documentation. <a
