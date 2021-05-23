@@ -7,8 +7,6 @@ The functions can also be adapted for diverse related use in individual projects
 
 The project is open source so collaboration and suggestions are welcome for improvement and to create a robust function base. Do reach out! 😉👍
 
-Reach out for suggestion and collaboration to keep updating the list.
-
 #### Current list of simulator functions
 
 ###### (List will keep being updated)
