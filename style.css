@@ -93,8 +93,9 @@ main {
   margin-bottom: 20px;
 }
 .simulator-list button {
-  height: 65px;
-  padding: 0 30px;
+  min-height: 65px;
+  width: 100%;
+  padding: 0 min(30px, 5vw);
   background: var(--pry-yellow-clr);
   border: 2px solid var(--pry-black-clr);
   border-radius: 50px;
@@ -108,7 +109,7 @@ main {
 }
 .about-project p {
   color: var(--pry-yellow-clr);
-  font-size: 24px;
+  font-size: 20px;
   padding: 20px;
   text-align: justify;
 }
@@ -177,6 +178,9 @@ footer {
 }
 footer > * {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 footer button:hover,
 footer a:hover {
