@@ -11,12 +11,27 @@ navBtns.forEach((nav) => {
       window[fxnName]();
     }
     callRelatedFxn(id);
+    window.scrollTo(0, 0);
   });
 });
 
-if (!location.hash || location.hash.slice(-9) !== 'Simulator') {
+document.getElementById('aboutPage').addEventListener('click', (ev) => {
+  history.pushState({ id: 'aboutPage' }, '', '/#aboutPage');
+  document.title = 'About FS Project';
+  aboutPage();
+  window.scrollTo(0, 0);
+});
+
+if (location.hash == '#aboutPage') {
+  document.title = 'About FS Project';
+  history.replaceState({ id: 'aboutPage' }, '');
+  aboutPage();
+} else if (!location.hash || location.hash.slice(-9) !== 'Simulator') {
   history.replaceState({ id: null }, '', './');
   document.title = 'Function Simulator';
+  // location.reload();
+  // return false;
+  window.scrollTo(0, 0);
 } else {
   let hash = location.hash.replace('#', '');
   document.title = `${hash.slice(0, -9)} ${hash.slice(-9)}`;
@@ -25,4 +40,5 @@ if (!location.hash || location.hash.slice(-9) !== 'Simulator') {
     window[fxnName]();
   }
   callRelatedFxn(hash);
+  window.scrollTo(0, 0);
 }
