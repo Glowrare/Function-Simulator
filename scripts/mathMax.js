@@ -24,7 +24,7 @@ function MathMaxArraySimulator() {
   </div>
           </div>
           <div class="simulator-doc-ref">
-            <p>The MathMaxArray Simulator is a function created to mimic the functioin of <code>Math.max.apply(null, numArray)</code> or <code>Math.max(...arr)</code> methods which return the maximum element in a numeric array.
+            <p>The MathMaxArray Simulator is a function created to mimic the function of <code>Math.max.apply(null, numArray)</code> or <code>Math.max(...arr)</code> methods which return the maximum element in a numeric array.
               <br> See details in MDN documentation. <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max">Math.max()</a>
             </p>
@@ -49,18 +49,15 @@ function findArrayMaxVal(arrayNum) {
 
 function getArrayMax() {
   let regex = /\s*,\s*/;
-  const enteredArray = document
-    .querySelector('#arrayMax')
-    .value.trim()
-    .split(regex)
-    .map((x) => {
-      return parseInt(x);
-    });
+  const enteredArray = document.querySelector('#arrayMax').value.trim();
+  const convertedArray = enteredArray.split(regex).map((x) => {
+    return parseInt(x);
+  });
   const searchResult = document.querySelector('.result p');
   if (enteredArray == '') {
     alert('Entered Array field cannot be empty');
   } else {
-    const result = findArrayMaxVal(enteredArray);
+    const result = findArrayMaxVal(convertedArray);
     searchResult.textContent = result;
   }
 }

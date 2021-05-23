@@ -29,8 +29,6 @@ if (location.hash == '#aboutPage') {
 } else if (!location.hash || location.hash.slice(-9) !== 'Simulator') {
   history.replaceState({ id: null }, '', './');
   document.title = 'Function Simulator';
-  // location.reload();
-  // return false;
   window.scrollTo(0, 0);
 } else {
   let hash = location.hash.replace('#', '');
