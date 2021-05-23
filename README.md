@@ -22,4 +22,4 @@ Reach out for suggestion and collaboration to keep updating the list.
 - Join simulator
   - Get a new string by concatenating all of the elements in an array, separated by commas or a specified separator string"
 
-[Link to Github pages view of the code rendered]()
+[Link to Github pages view of the code rendered](https://glowrare.github.io/Function-Simulator)
