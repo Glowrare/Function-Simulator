@@ -186,3 +186,12 @@ footer button:hover,
 footer a:hover {
   text-decoration: underline;
 }
+/* Not found */
+.not-found-content {
+  color: var(--pry-yellow-clr);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 100px;
+  font-size: min(40px, 4vw + 0.5rem);
+}
