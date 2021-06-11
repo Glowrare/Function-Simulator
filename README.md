@@ -20,4 +20,4 @@ The project is open source so collaboration and suggestions are welcome for impr
 - Join simulator
   - Get a new string by concatenating all of the elements in an array, separated by commas or a specified separator string"
 
-[Link to Github pages view of the code rendered](https://glowrare.github.io/Function-Simulator)
+[Visit Function SImulator published site here](https://function-simulator.netlify.app/)
