@@ -56,6 +56,8 @@ function getArrayMax() {
   const searchResult = document.querySelector('.result p');
   if (enteredArray == '') {
     alert('Entered Array field cannot be empty');
+  } else if (isNaN(convertedArray[0])) {
+    searchResult.textContent = 'Entered Array must be numeric!';
   } else {
     const result = findArrayMaxVal(convertedArray);
     searchResult.textContent = result;

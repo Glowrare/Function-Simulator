@@ -5,6 +5,11 @@
   --main-bg-clr: #810000;
   --pry-text-clr: #630000;
   --pry-black-clr: #1b1717;
+  /* START: DARK MODE ROOT COLORS */
+  --pry-dark-mode-clr: #030303;
+  --main-dark-mode-bg-clr: #110f0f;
+  --pry-dark-mode-text-clr: #fff;
+  /* END: DARK MODE ROOT COLORS */
   --pry-font-family: 'Poppins', sans-serif;
   --sec-font-family: 'Courier Prime', monospace;
 }
@@ -30,10 +35,14 @@ body {
 }
 .container {
   max-width: 1500px;
-  margin: 5rem auto;
+  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.color-mode-toggler {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 .back-home-btn {
   margin-bottom: 10px;
@@ -185,4 +194,75 @@ footer > * {
 footer button:hover,
 footer a:hover {
   text-decoration: underline;
+}
+/* Not found */
+.not-found-content {
+  color: var(--pry-yellow-clr);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 100px;
+  font-size: min(40px, 4vw + 0.5rem);
+}
+
+/* DARK THEME */
+body.dark {
+  background: var(--pry-dark-mode-clr);
+  color: var(--pry-dark-mode-text-clr);
+}
+.dark .classic-btn {
+  background: var(--pry-dark-mode-text-clr);
+  border: 2px solid var(--pry-dark-mode-clr);
+  color: var(--pry-dark-mode-clr);
+}
+.dark .classic-btn:hover {
+  background: var(--pry-dark-mode-clr);
+  color: var(--pry-dark-mode-text-clr);
+  border-color: var(--pry-dark-mode-text-clr);
+}
+.dark main {
+  background: var(--main-dark-mode-bg-clr);
+  border: 2px solid var(--pry-dark-mode-clr);
+  box-shadow: 10px 10px 3px 4px rgba(255, 255, 255, 0.4);
+}
+.dark .header {
+  color: var(--pry-dark-mode-text-clr);
+}
+.dark .simulator-list button {
+  background: var(--pry-dark-mode-text-clr);
+  border: 2px solid var(--pry-dark-mode-text-clr);
+  color: var(--pry-dark-mode-clr);
+}
+.dark .simulator-list button:hover {
+  background: var(--pry-dark-mode-clr);
+  color: var(--pry-dark-mode-text-clr);
+}
+.dark .about-project p {
+  color: var(--pry-dark-mode-text-clr);
+}
+.dark .index-of-select {
+  background: var(--pry-dark-mode-text-clr);
+  color: var(--pry-dark-mode-clr);
+}
+.dark .input-field-wrapper {
+  background: var(--pry-dark-mode-text-clr);
+}
+.dark .input-grp label {
+  color: var(--pry-dark-mode-clr);
+}
+.dark .input-grp input {
+  background: var(--pry-dark-mode-text-clr);
+  color: var(--pry-dark-mode-clr);
+}
+.dark .input-grp input::placeholder {
+  color: var(--pry-dark-mode-clr);
+}
+.dark .result p {
+  color: var(--pry-dark-mode-clr);
+}
+.dark .simulator-doc-ref {
+  color: var(--pry-dark-mode-text-clr);
+}
+.dark .not-found-content {
+  color: var(--pry-dark-mode-text-clr);
 }
