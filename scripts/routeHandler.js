@@ -4,7 +4,7 @@ navBtns.forEach((nav) => {
   let id = nav.id;
 
   nav.addEventListener('click', (ev) => {
-    history.pushState({ id: id }, '', `/Function-Simulator/#${id}`);
+    history.pushState({ id: id }, '', `/#${id}`);
     let pageTitle = `${id.slice(0, -9)} ${id.slice(-9)}`;
     document.title = pageTitle;
     function callRelatedFxn(fxnName) {
@@ -16,7 +16,7 @@ navBtns.forEach((nav) => {
 });
 
 document.getElementById('aboutPage').addEventListener('click', (ev) => {
-  history.pushState({ id: 'aboutPage' }, '', '/Function-Simulator/#aboutPage');
+  history.pushState({ id: 'aboutPage' }, '', '/#aboutPage');
   document.title = 'About FS Project';
   aboutPage();
   window.scrollTo(0, 0);
@@ -27,7 +27,7 @@ if (location.hash == '#aboutPage') {
   history.replaceState({ id: 'aboutPage' }, '');
   aboutPage();
 } else if (!location.hash || location.hash.slice(-9) !== 'Simulator') {
-  history.replaceState({ id: null }, '', '/Function-Simulator');
+  history.replaceState({ id: null }, '', '/');
   document.title = 'Function Simulator';
   window.scrollTo(0, 0);
 } else {
